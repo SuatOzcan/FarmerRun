@@ -602,7 +602,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4543079026465287472, guid: da86c1fbb86fb0b4cb7da298dfe1ea36, type: 3}
       propertyPath: jumpForce
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4543079026465287472, guid: da86c1fbb86fb0b4cb7da298dfe1ea36, type: 3}
       propertyPath: gravityModifier

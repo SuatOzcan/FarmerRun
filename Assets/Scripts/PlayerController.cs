@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         //{                                                // It worked when I instantiate with
         //                                                 // Instantiate(obstaclePrefab);
         //                                                 // Still it doesn't work when
-        //                                                 // I use Instantiate with InvokeRepeating.
+        //                                                 // I use Instantiate in InvokeRepeating.
         //    isGameOver = true;
         //    Debug.Log("Game Over!");
         //}

@@ -34,7 +34,6 @@ public class SpawnManager : MonoBehaviour
     {
         if(!playerControllerScript.isGameOver)
         Instantiate(obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
-        //Instantiate(obstaclePrefab); // 
-                                     
+        //Instantiate(obstaclePrefab); //                 
     }
 }
