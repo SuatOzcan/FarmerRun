@@ -6,10 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private Animator playerAnimator;
-    public float jumpForce = 15f;
+    public float jumpForce = 35f;
     public float gravityModifier = 1f;
     private bool isOnGround = true;
     public bool isGameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if(Input.GetKeyDown(KeyCode.Space) && isOnGround && !isGameOver) // 
         {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -46,15 +47,20 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    private void OnTriggerEnter(Collider other) // I.ve written this to work with
+    private void OnTriggerEnter(Collider other) // I've written this to work with
                                                 // the longer Instantiate declaration.
     {
-        if (other.gameObject.CompareTag("Obstacle")) // Some how it doesn't work.
+        if (other.gameObject.CompareTag("Obstacle"))
         {
             playerAnimator.SetBool("Death_b", true);
             playerAnimator.SetInteger("DeathType_int", 1);
             isGameOver = true;
             Debug.Log("Game Over!");
         }
+
+        //else if (other.gameObject.CompareTag("Ground")) // This does not work.
+        //{
+        //    isOnGround = true;
+        //}
     }
 }
