@@ -9,15 +9,13 @@ public class SpawnManager : MonoBehaviour
     private Vector3 spawnPosition = new Vector3(25,0,0);
     public float repeatRate =4f;
     private float startDelay = 2f;
+
     // Start is called before the first frame update
     public void Start()
     {
         //Instantiate(obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
-        InvokeRepeating(nameof(SpawnObstacle), startDelay, repeatRate); // This never detects collisions.
+        InvokeRepeating(nameof(SpawnObstacle), startDelay, repeatRate);
         //Instantiate(original: obstaclePrefab);
-        // This detects collision,
-        // somehow the one below does not detect collision.
-        // Instantiate(original: obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -34,6 +32,6 @@ public class SpawnManager : MonoBehaviour
     {
         if(!playerControllerScript.isGameOver)
         Instantiate(obstaclePrefab, spawnPosition, obstaclePrefab.transform.rotation);
-        //Instantiate(obstaclePrefab); //                 
+        //Instantiate(obstaclePrefab);             
     }
 }
