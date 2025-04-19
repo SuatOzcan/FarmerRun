@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         // It works when both the player and the obstacle have Rigidbody component on them.
         // It does not work when the obstacle object does not have a Rigidbody component. Weird.
         //This does not work because on the obstacle IsTrigger option is true.
+        // It actually works without a rigidbody on the obstacle when the player touches the fence on air.
         if (collision.gameObject.CompareTag("Obstacle"))
         {                                                
             playerAnimator.SetBool("Death_b", true);
