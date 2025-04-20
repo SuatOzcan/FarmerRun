@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidBody;
     private Animator playerAnimator;
     public float jumpForce = 35f;
-    public float gravityModifier = 1f;
+    //public float gravityModifier = 1f;
     public bool isOnGround = true;
     public bool isGameOver;
 
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
-        Physics.gravity *= gravityModifier;
+        //Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
         // It does not work when the obstacle object does not have a Rigidbody component. Weird.
         //This does not work because on the obstacle IsTrigger option is true.
         // It actually works without a rigidbody on the obstacle when the player touches the fence on air.
+        // This has something to do with the AddForce method. When the character is under the effect
+        // of a force, this OnCollision method works.
+        // Since there is not a rigidbody on the Obstacle, neither is there a force on the player,
+        // this OnCollision method does not work.
         if (collision.gameObject.CompareTag("Obstacle"))
         {                                                
             playerAnimator.SetBool("Death_b", true);
