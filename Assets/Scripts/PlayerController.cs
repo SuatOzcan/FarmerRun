@@ -32,9 +32,6 @@ public class PlayerController : MonoBehaviour
 
     // The OnCollisionEnter and OnTriggerEnter methods cannot be called at the same time because
     // the box collider cannot be at the same time a standard one and an isTrigger one.
-    // There is a technique, however, to make this work. It goes like this.
-    // I put a standard box collider on one object and an isTrigger box collider on the other.
-    // This way I make both of them work.
 
     private void OnCollisionEnter(Collision collision)
     {
