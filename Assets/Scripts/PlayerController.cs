@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // The OnCollisionEnter and OnTriggerEnter methods cannot be called at the same time because
+    // the box collider cannot be at the same time a standard one and an isTrigger one.
+    // There is a technique, however, to make this work. It goes like this.
+    // I put a standard box collider on one object and an isTrigger box collider on the other.
+    // This way I make both of them work.
+
     private void OnCollisionEnter(Collision collision)
     {
         // It works when both the player and the obstacle have Rigidbody component on them.
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour
         // of a force, this OnCollision method works.
         // Since there is not a rigidbody on the Obstacle, neither is there a force on the player,
         // this OnCollision method does not work.
+        // To summarize, the OnCollisionEnter method works when the rigidbody is moving.
         if (collision.gameObject.CompareTag("Obstacle"))
         {                                                
             playerAnimator.SetBool("Death_b", true);
